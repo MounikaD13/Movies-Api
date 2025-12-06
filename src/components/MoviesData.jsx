@@ -3,6 +3,8 @@ import axios from 'axios'
 import '../styles/MoviesData.css'
 import SearchBar from './SearchBar'
 import MovieModal from './MovieModal'
+import moviesData from '../movies.json'
+
 
 const MOVIES_START = 12
 const MOVIES_EACH_LOAD = 4
@@ -15,14 +17,22 @@ export default function MoviesData() {
   const [sorting, setSorting] = useState(null)
 
   useEffect(() => {
-    axios.get("https://api.themoviedb.org/3/movie/popular?api_key=7d11c439ee1fb0b726264ecb26410f19")
-      .then((res) => (res.data.results))
-      .catch((err) => console.log(err));
+    setMovies(moviesData.movies);  // No axios needed
   }, []);
 
   const filteredMovies = movies.filter((movie) => movie.title.toLowerCase().includes(searchTerm.toLowerCase()))
+  // SORTING LOGIC
+let sortedMovies = [...filteredMovies];
 
-  const displayMovies = filteredMovies.slice(0, visibleMovies)
+if (sorting === "rating-high") {
+  sortedMovies.sort((a, b) => b.vote_average - a.vote_average);
+}
+else if (sorting === "pop-high") {
+  sortedMovies.sort((a, b) => b.popularity - a.popularity);
+}
+
+
+const displayMovies = sortedMovies.slice(0, visibleMovies);
 
   const closeModal = () => {
     setModal(null)
@@ -36,17 +46,20 @@ export default function MoviesData() {
     <>
       <div className='navbar-container'>
         <div className="d-flex align-items-center p-3">
-          <select className="filter-select ms-auto" value={sorting || ""}
-            onChange={(e) => setSorting(e.target.value)}>
-            <option value="">Select Filter</option>
-            <option value="popular">Popular</option>
-            <option value="rating">Rating</option> 
-            <option value="year">Year</option>
-          </select>
+         <select
+  className="filter-select ms-auto"
+  value={sorting || ""}
+  onChange={(e) => setSorting(e.target.value)}
+>
+  <option value="">Sort By</option>
+  <option value="rating-high">Rating </option>
+  <option value="pop-high">Popular</option>
+</select>
+
           {/* <div className='light'>
                     <input type="radio" />Light
                 </div> */}
-          <button className="btn btn-danger ">Sign in</button>
+          {/* <button className="btn btn-danger " >Sign in</button> */}
         </div>
         <SearchBar searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
       </div>

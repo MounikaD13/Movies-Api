@@ -21,6 +21,7 @@ body {
   margin: auto;
   color: white;
   text-align: center;
+  font-weight: bolder;
 }
 
 .search-box {

@@ -70,17 +70,3 @@ export default function MovieModal({ movie, closeModal }) {
   );
 }
 
-// function convertToEmbed(url) {
-//     let embedUrl = url.replace("watch?v=", "embed/");
-
-//     // If the URL contains timestamp &t=20s
-//     if (embedUrl.includes("&t=")) {
-//       const parts = embedUrl.split("&t=");
-//       const base = parts[0];
-//       const seconds = parseInt(parts[1]); // t=20s -> 20
-
-//       return base + "?start=" + seconds;
-//     }
-
-//     return embedUrl;
-//   }

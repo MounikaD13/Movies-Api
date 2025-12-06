@@ -1,6 +1,5 @@
 {
-    "page": 1,
-    "results": [
+    "movies":[
         {
             "adult": false,
             "backdrop_path": "/4BtL2vvEufDXDP4u6xQjjQ1Y2aT.jpg",
@@ -398,6 +397,7 @@
             "vote_average": 6.734,
             "vote_count": 47
         }
+        
     ],
     "total_pages": 53894,
     "total_results": 1077879
