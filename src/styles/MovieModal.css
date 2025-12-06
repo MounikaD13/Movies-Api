@@ -1,0 +1,26 @@
+.modal {
+
+    background: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(7px);
+    /* BLUR BACKGROUND */
+    z-index: 9999;
+}
+
+.modal-content {
+    background: #1f1f1f;
+    color: white;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+
+}
+
+.modal-header button {
+    background: white;
+    border-radius: 25%;
+    color: black;
+}
+
+.modal-body img {
+    width: 100%;
+    border-radius: 10px;
+}
