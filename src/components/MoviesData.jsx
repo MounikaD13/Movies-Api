@@ -22,17 +22,17 @@ export default function MoviesData() {
 
   const filteredMovies = movies.filter((movie) => movie.title.toLowerCase().includes(searchTerm.toLowerCase()))
   // SORTING LOGIC
-let sortedMovies = [...filteredMovies];
+  let sortedMovies = [...filteredMovies];
 
-if (sorting === "rating-high") {
-  sortedMovies.sort((a, b) => b.vote_average - a.vote_average);
-}
-else if (sorting === "pop-high") {
-  sortedMovies.sort((a, b) => b.popularity - a.popularity);
-}
+  if (sorting === "rating-high") {
+    sortedMovies.sort((a, b) => b.vote_average - a.vote_average);
+  }
+  else if (sorting === "pop-high") {
+    sortedMovies.sort((a, b) => b.popularity - a.popularity);
+  }
 
 
-const displayMovies = sortedMovies.slice(0, visibleMovies);
+  const displayMovies = sortedMovies.slice(0, visibleMovies);
 
   const closeModal = () => {
     setModal(null)
@@ -46,15 +46,15 @@ const displayMovies = sortedMovies.slice(0, visibleMovies);
     <>
       <div className='navbar-container'>
         <div className="d-flex align-items-center p-3">
-         <select
-  className="filter-select ms-auto"
-  value={sorting || ""}
-  onChange={(e) => setSorting(e.target.value)}
->
-  <option value="">Sort By</option>
-  <option value="rating-high">Rating </option>
-  <option value="pop-high">Popular</option>
-</select>
+          <select
+            className="filter-select ms-auto"
+            value={sorting || ""}
+            onChange={(e) => setSorting(e.target.value)}
+          >
+            <option value="">Sort By</option>
+            <option value="rating-high">Rating </option>
+            <option value="pop-high">Popular</option>
+          </select>
 
           {/* <div className='light'>
                     <input type="radio" />Light
@@ -64,7 +64,7 @@ const displayMovies = sortedMovies.slice(0, visibleMovies);
         <SearchBar searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
       </div>
       <div className='container trending'>
-        <h1>TRENDING MOVIES :</h1>
+        <h3>Your Next Watch:</h3>
       </div>
       <div className="container mt-4">
         <div className="row g-4 mb-5">
