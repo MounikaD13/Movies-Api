@@ -13,7 +13,8 @@ body {
   padding: 7%;
 
 }
-.trending{
+
+.trending {
   color: white;
 }
 
@@ -21,7 +22,7 @@ body {
   margin: auto;
   color: white;
   text-align: center;
-  
+
 }
 
 .search-box {
@@ -60,6 +61,15 @@ body {
   /* border-radius: 15px; */
   box-shadow: 1px 2px 4px rgb(160, 157, 157);
   overflow: hidden;
+}
+
+.movies-card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.movies-card:hover {
+  transform: scale(1.05) translateY(-5px);
+   box-shadow: 1px 3px 4px rgb(47, 181, 214);
 }
 
 .movies-card img {
